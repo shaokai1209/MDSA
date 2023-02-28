@@ -72,7 +72,6 @@ end
 X_tar = X(n+1:end,:);
 disp("......... Multi-PCA End ........");
 disp("========= Split Target Corpus by Emotional Labels (Train : Test) ==========");
-% for iii = 1:10
 msg = ['According to split='  num2str(split) ' , the target_train:target_test is ' num2str(10*split) ':' num2str(10*(1-split))];
 disp(msg);
 class_num = max(X_tar_label);
@@ -95,24 +94,21 @@ for i = 1:class_num
     X_tar_test_label = [X_tar_test_label;X_tar_label(c_p+1:c_e,:)];
 end
 data = [];
-for jj=1:5
-%shuffle target_train
-X_tt= [X_tar_train,X_tar_train_label];
-rowrank = randperm(size(X_tt, 1)); 
-X1 = X_tt(rowrank,:);  
-X_tar_train = X1(:,1:size(X_tar_train,2));
-X_tar_train_label = X1(:,size(X_tar_train,2)+1);
-%shuffle target_test
-X_tt= [X_tar_test,X_tar_test_label];
-rowrank = randperm(size(X_tt, 1)); 
-X1 = X_tt(rowrank,:);  
-X_tar_test = X1(:,1:size(X_tar_test,2));
-X_tar_test_label = X1(:,size(X_tar_test,2)+1);
-disp("......... Split End ........");
-disp("========= Multi-Disciminant Subspace Alihnment (MDSA) START ==========");
-ll = 0;
-for g11= [1]
-    ll=ll+1;
+for jj=1:10
+    %shuffle target_train
+    X_tt= [X_tar_train,X_tar_train_label];
+    rowrank = randperm(size(X_tt, 1)); 
+    X1 = X_tt(rowrank,:);  
+    X_tar_train = X1(:,1:size(X_tar_train,2));
+    X_tar_train_label = X1(:,size(X_tar_train,2)+1);
+    %shuffle target_test
+    X_tt= [X_tar_test,X_tar_test_label];
+    rowrank = randperm(size(X_tt, 1)); 
+    X1 = X_tt(rowrank,:);  
+    X_tar_test = X1(:,1:size(X_tar_test,2));
+    X_tar_test_label = X1(:,size(X_tar_test,2)+1);
+    disp("......... Split End ........");
+    disp("========= Multi-Disciminant Subspace Alihnment (MDSA) START ==========");
     options = [];
     options.beta = 8*10^3;%1~8
     options.gamma =1.5;%
@@ -138,92 +134,9 @@ for g11= [1]
     disp("Final test acc:");
     disp(acc(1));
     myacc(ll) = acc(1);
-end
-data(jj) = acc(1);
+    data(jj) = acc(1);
 end
 b = mean(data);
 disp(b);
 a = std(data,1);
 disp(a);
-% end
-% Zss = [];
-% lll =  cell(1,num_src_domain);
-% for i = 1:num_src_domain
-%        mm = P{i}*X_src{i}';
-%        mm=normalization(mm,1);
-%        Zss = [Zss,mm(:,1:300)];
-%        lll{i} = X_src_label{i}(1:300,:);
-%        trials  = [trials;300];
-% end
-% Zss = Zss*diag(sparse(1./sqrt(sum(Zss.^2))));
-% 
-% X =[Zss,Zt];
-% % X=normalization(X,1);
-% %mahalanobis  euclidean
-%    Y = tsne(X','Algorithm','exact','Distance','cosine');%,'NumPCAComponents',10
-%    Ys1=Y(1:trials(1),:);
-%    Ys2=Y(trials(1)+1:trials(1)+trials(2),:);
-%    Ys3=Y(trials(1)+trials(2)+1:trials(1)+trials(2)+trials(3),:);
-%    Ys4=Y(trials(1)+trials(2)+trials(3)+1:trials(1)+trials(2)+trials(3)+trials(4),:);
-%    Y2=Y(trials(1)+trials(2)+trials(3)+1:end,:);
-%    figure;
-%       %subplot(2,3,1);
-% %        axis([-50,50,-50,50]);
-%        
-%      scatter(Ys1(lll{1}==1,1),Ys1(lll{1}==1,2),'*','r','LineWidth',1);
-%      hold on
-%      scatter(Ys1(lll{1}==2,1),Ys1(lll{1}==2,2),'*','b','LineWidth',1);
-%         hold on;
-%      scatter(Ys1(lll{1}==3,1),Ys1(lll{1}==3,2),'*','g','LineWidth',1);
-%         hold on;
-%      scatter(Ys1(lll{1}==4,1),Ys1(lll{1}==4,2),'*','y','LineWidth',1);
-%         hold on;
-% 
-%    scatter(Ys2(lll{2}==1,1),Ys2(lll{2}==1,2),'+','r','LineWidth',1);
-%      hold on
-%      scatter(Ys2(lll{2}==2,1),Ys2(lll{2}==2,2),'+','b','LineWidth',1);
-%         hold on;
-%      scatter(Ys2(lll{2}==3,1),Ys2(lll{2}==3,2),'+','g','LineWidth',1);
-%         hold on;
-%      scatter(Ys2(lll{2}==4,1),Ys2(lll{2}==4,2),'+','y','LineWidth',1);
-%         hold on;
-%         
-%    scatter(Ys3(lll{3}==1,1),Ys3(lll{3}==1,2),'o','r','LineWidth',1);
-%      hold on
-%      scatter(Ys3(lll{3}==2,1),Ys3(lll{3}==2,2),'o','b','LineWidth',1);
-%         hold on;
-%      scatter(Ys3(lll{3}==3,1),Ys3(lll{3}==3,2),'o','g','LineWidth',1);
-%         hold on;
-%      scatter(Ys3(lll{3}==4,1),Ys3(lll{3}==4,2),'o','y','LineWidth',1);
-%         hold on;
-%         
-%         
-%     scatter(Ys4(lll{4}==1,1),Ys4(lll{4}==1,2),'^','r','LineWidth',1);
-%      hold on
-%      scatter(Ys4(lll{4}==2,1),Ys4(lll{4}==2,2),'^','b','LineWidth',1);
-%         hold on;
-%      scatter(Ys4(lll{4}==3,1),Ys4(lll{4}==3,2),'^','g','LineWidth',1);
-%         hold on;
-%      scatter(Ys4(lll{4}==4,1),Ys4(lll{4}==4,2),'^','y','LineWidth',1);
-%         hold on;
-%         
-%         
-%      scatter(Y2(X_tar_test_label==1,1),Y2(X_tar_test_label==1,2),'d','r','LineWidth',1);
-%      hold on
-%      scatter(Y2(X_tar_test_label==2,1),Y2(X_tar_test_label==2,2),'d','b','LineWidth',1);
-%         hold on;
-%      scatter(Y2(X_tar_test_label==3,1),Y2(X_tar_test_label==3,2),'d','g','LineWidth',1);
-%         hold on;
-%      scatter(Y2(X_tar_test_label==4,1),Y2(X_tar_test_label==4,2),'d','y','LineWidth',1);
-%         hold on;
-     
-%         box on;
-%     view(-20,20);
-
-
-
-%     act=Zt_label;
-%     act1=act';
-%     det=pred_label;
-%     det1=det';
-%     confusion_matrix1(act1,det1);
