@@ -9,3 +9,5 @@
 #num_src_domain: choose the number of source domain
 
 #split: choose train:test in target corpus
+
+#If you have any questions, please email the author (shaokai1209@gmail.com)
