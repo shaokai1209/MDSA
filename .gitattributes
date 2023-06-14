@@ -1,5 +1,5 @@
-*.js linguist-language=python
+*.c linguist-language=matlab
 
-*.css linguist-language=python
+*.cpp linguist-language=matlab
 
-*.html linguist-language=python
+*.h linguist-language=matlab
