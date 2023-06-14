@@ -11,13 +11,23 @@
 #split: choose train:test in target corpus
 
 # Example:  
+
 #num_src_domain = 4
+
 #split = 0.7
+
 #========= Input Multi-source ==========
+
 #The Filename of Source Corpus 1 : IEMOCAP
+
 #The Filename of Source Corpus 2 : CVE
+
 #The Filename of Source Corpus 3 : EMOVO
+
 #The Filename of Source Corpus 4 : TESS
+
 #========= Input Target ==========
+
 #The Filename of Target Corpus : berlin
+
 #...
