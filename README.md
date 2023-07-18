@@ -33,7 +33,7 @@
 #...
 
 #  Cite us
-#Cite this paper, if you find MDSA is helpful for your research publication.
+#Cite this paper, if you find MDSA is helpful to your research publication.
 ```
 @ARTICLE{10158502,
   author={Li, Shaokai and Song, Peng and Zheng, Wenming},
