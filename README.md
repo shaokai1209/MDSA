@@ -34,7 +34,7 @@
 
 #  Cite us
 #Cite this paper, if you find MDSA is helpful for your research publication.
-'''
+```
 @ARTICLE{10158502,
   author={Li, Shaokai and Song, Peng and Zheng, Wenming},
   journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing}, 
@@ -44,4 +44,4 @@
   number={},
   pages={2448-2460},
   doi={10.1109/TASLP.2023.3288415}}
-'''
+```
