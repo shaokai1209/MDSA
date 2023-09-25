@@ -1,6 +1,8 @@
 # The code of the paper "Multi-source discriminant subspace alignment for cross-corpus speech emotion recognition".
 
-![The flowchart of MDSA.](https://github.com/shaokai1209/shaokai1209/blob/main/2023%20TASLP.png)
+#The flowchart of MDSA.
+
+![image](https://github.com/shaokai1209/shaokai1209/blob/main/2023%20TASLP.png)
 
 #If you want to test MDSA with datasets, you should create two files for each dataset in the "data" folder, including dataset.mat and dataset_label.mat.
 
