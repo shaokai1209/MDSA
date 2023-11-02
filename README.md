@@ -14,21 +14,18 @@
 
 #split: choose train:test in target corpus
 
+#Special note: IEMOCAP and CVE require a license to obtain, so it is not public, the "data" folder has three public datasets for testing, only need to set num_src_domain=2.
 # Example:  
 
-#num_src_domain = 4
+#num_src_domain = 2
 
 #split = 0.7
 
 #========= Input Multi-source ==========
 
-#The Filename of Source Corpus 1 : IEMOCAP
+#The Filename of Source Corpus 1 : EMOVO
 
-#The Filename of Source Corpus 2 : CVE
-
-#The Filename of Source Corpus 3 : EMOVO
-
-#The Filename of Source Corpus 4 : TESS
+#The Filename of Source Corpus 2 : TESS
 
 #========= Input Target ==========
 
