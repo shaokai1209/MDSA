@@ -14,7 +14,8 @@
 
 #split: choose train:test in target corpus
 
-#Special note: IEMOCAP and CVE require a license to obtain, so it is not public, the "data" folder has three public datasets for testing, only need to set num_src_domain=2.
+#Special note: IEMOCAP and CVE require a license to obtain, the "data" folder has three public datasets for testing, only need to set num_src_domain=2.
+
 # Example:  
 
 #num_src_domain = 2
