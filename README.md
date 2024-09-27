@@ -37,13 +37,13 @@
 #  Cite us
 #Cite this paper, if you find MDSA is helpful to your research publication.
 ```
-@ARTICLE{10158502,
+@article{li2023multi,
+  title={Multi-source discriminant subspace alignment for cross-domain speech emotion recognition},
   author={Li, Shaokai and Song, Peng and Zheng, Wenming},
-  journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing}, 
-  title={Multi-Source Discriminant Subspace Alignment for Cross-Domain Speech Emotion Recognition}, 
-  year={2023},
+  journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing},
   volume={31},
-  number={},
-  pages={2448-2460},
-  doi={10.1109/TASLP.2023.3288415}}
+  pages={2448--2460},
+  year={2023},
+  publisher={IEEE}
+}
 ```
